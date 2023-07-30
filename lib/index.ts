@@ -8,7 +8,7 @@ interface Variables {
 }
 
 export default async function (root: string, variables: Variables) {
-  const csBin = variables.dogfood ? "./bin/code-skeleton.js" : "code-skeleton";
+  const csBin = variables.dogfood ? "./bin/code-skeleton.ts" : "code-skeleton";
   const skeleton: Skeleton = {
     "package.json": pkg({
       "//": "This file is partially managed by code-skeleton. Changes may be overwritten.",
