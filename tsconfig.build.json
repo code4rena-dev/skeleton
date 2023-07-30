@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.json",
+  "exclude": [
+    "./lib/content/**",
+    "./test/**",
+    "./scripts/**"
+  ],
+  "compilerOptions": {
+    "declaration": true
+  },
+  "//": "This file is partially managed by code-skeleton. Changes may be overwritten."
+}

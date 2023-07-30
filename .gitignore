@@ -1,0 +1,34 @@
+# This file is managed by code-skeleton. Do not make changes.
+# ignore everything in the root
+/*
+
+# keep these
+!**/.gitignore
+!/.eslintrc.js
+!/.github/
+!/.gitignore
+!/.npmrc
+!/bin/
+!/CHANGELOG*
+!/docs/
+!/lib/
+!/LICENSE*
+!/package.json
+!/README*
+!/scripts/
+!/tap-snapshots/
+!/test/
+!/tsconfig*.json
+
+# re-ignore typescript output artifacts
+/bin/**/*.js
+/bin/**/*.d.ts
+/lib/**/*.js
+/lib/**/*.d.ts
+/scripts/**/*.js
+/scripts/**/*.d.ts
+/test/**/*.js
+/test/**/*.d.ts
+
+# make sure we keep type defs for external libs
+!/lib/types/*/*.d.ts

@@ -1,0 +1,46 @@
+{
+  "name": "@code4rena/skeleton",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "tap",
+    "clean": "./scripts/clean.ts",
+    "lint": "eslint .",
+    "posttest": "npm run lint",
+    "prepack": "tsc --project tsconfig.build.json",
+    "prelint": "tsc --noEmit",
+    "postlint": "npm run skeleton:verify",
+    "skeleton:apply": "code-skeleton apply",
+    "skeleton:verify": "code-skeleton verify"
+  },
+  "keywords": [],
+  "author": "Nathan LaFreniere <nlf@nlf.sh>",
+  "license": "ISC",
+  "devDependencies": {
+    "@tsconfig/node18": "^2.0.0",
+    "@types/node": "^18.0.0",
+    "@types/tap": "^15.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
+    "eslint": "^8.0.0",
+    "tap": "^16.0.0",
+    "ts-node": "^10.0.0",
+    "typescript": "^5.0.0"
+  },
+  "peerDependencies": {
+    "code-skeleton": "^1.0.0"
+  },
+  "skeleton": {
+    "module": ".",
+    "variables": {
+      "library": true
+    }
+  },
+  "files": [
+    "bin/**/*.js",
+    "lib/**/*.js",
+    "lib/**/*.d.ts",
+    "!lib/types/**"
+  ]
+}
