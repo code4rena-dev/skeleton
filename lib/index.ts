@@ -14,9 +14,9 @@ interface Variables {
 
 export default async function (root: string, variables: Variables) {
   const actualContent = await readFile(join(root, "package.json"), { encoding: "utf8" });
-  const actualPkg = JSON.parse(actualContent) as { name: string; dependencies?: Record<string, string> };
-  if (actualPkg.name !== ownPkg.name && actualPkg.dependencies?.[ownPkg.name] !== ownPkg.version) {
-    console.log(`ERROR! The dependency "${ownPkg.name}" must be set to the exact version "${ownPkg.version}"`);
+  const actualPkg = JSON.parse(actualContent) as { name: string; devDependencies?: Record<string, string> };
+  if (actualPkg.name !== ownPkg.name && actualPkg.devDependencies?.[ownPkg.name] !== ownPkg.version) {
+    console.log(`ERROR! The devDependency "${ownPkg.name}" must be set to the exact version "${ownPkg.version}"`);
     console.log(`Try running \`npm install --save-exact -D ${ownPkg.name}\``);
     process.exit(1);
   }
