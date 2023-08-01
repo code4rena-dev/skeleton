@@ -1,6 +1,11 @@
-import { join } from "node:path";
-import { rm } from "node:fs/promises";
+import { dirname, join } from "node:path";
+import { readFileSync } from "node:fs";
+import { readFile, rm } from "node:fs/promises";
 import { copy, json, pkg, type Skeleton } from "code-skeleton";
+ 
+const ownPkg = JSON.parse(
+  readFileSync(join(dirname(__dirname), "package.json"), { encoding: "utf8" })
+) as { name: string; version: string };
 
 interface Variables {
   dogfood?: boolean;
@@ -8,6 +13,14 @@ interface Variables {
 }
 
 export default async function (root: string, variables: Variables) {
+  const actualContent = await readFile(join(root, "package.json"), { encoding: "utf8" });
+  const actualPkg = JSON.parse(actualContent) as { name: string; dependencies?: Record<string, string> };
+  if (actualPkg.name !== ownPkg.name && actualPkg.dependencies?.[ownPkg.name] !== ownPkg.version) {
+    console.log(`ERROR! The dependency "${ownPkg.name}" must be set to the exact version "${ownPkg.version}"`);
+    console.log(`Try running \`npm install --save-exact -D ${ownPkg.name}\``);
+    process.exit(1);
+  }
+
   const csBin = variables.dogfood ? "./bin/code-skeleton.ts" : "code-skeleton";
   const skeleton: Skeleton = {
     "package.json": pkg({
