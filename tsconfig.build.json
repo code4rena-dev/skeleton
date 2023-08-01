@@ -1,9 +1,9 @@
 {
   "extends": "./tsconfig.json",
   "exclude": [
-    "./lib/content/**",
     "./test/**",
-    "./scripts/**"
+    "./scripts/**",
+    "./lib/content/**"
   ],
   "compilerOptions": {
     "declaration": true
