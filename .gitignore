@@ -11,22 +11,31 @@
 !/bin/
 !/CHANGELOG*
 !/docs/
+!/knexfile.ts
 !/lib/
+!/migrations/
 !/LICENSE*
 !/package.json
 !/README*
 !/scripts/
+!/seeds/
 !/tap-snapshots/
 !/test/
 !/tsconfig*.json
 
 # re-ignore typescript output artifacts
+/knexfile.js
+/knexfile.d.ts
 /bin/**/*.js
 /bin/**/*.d.ts
 /lib/**/*.js
 /lib/**/*.d.ts
+/migrations/**/*.js
+/migrations/**/*.d.ts
 /scripts/**/*.js
 /scripts/**/*.d.ts
+/seeds/**/*.js
+/seeds/**/*.d.ts
 /test/**/*.js
 /test/**/*.d.ts
 
