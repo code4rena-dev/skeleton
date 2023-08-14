@@ -2,7 +2,7 @@ import { dirname, join } from "node:path";
 import { readFileSync } from "node:fs";
 import { readFile, rm } from "node:fs/promises";
 import { copy, json, pkg, type Skeleton } from "code-skeleton";
- 
+
 const ownPkg = JSON.parse(
   readFileSync(join(dirname(__dirname), "package.json"), { encoding: "utf8" })
 ) as { name: string; version: string };
