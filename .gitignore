@@ -4,6 +4,7 @@
 
 # keep these
 !**/.gitignore
+!/.devcontainer/
 !/.eslintrc.js
 !/.github/
 !/.gitignore
