@@ -23,6 +23,7 @@
 !/tap-snapshots/
 !/test/
 !/tsconfig*.json
+!Dockerfile
 
 # re-ignore typescript output artifacts
 /knexfile.js
