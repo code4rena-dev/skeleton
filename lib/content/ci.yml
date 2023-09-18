@@ -38,6 +38,22 @@ jobs:
     defaults:
       run:
         shell: bash
+    <%#postgres%>
+    services:
+      postgres:
+        image: "postgres:14"
+        env:
+          POSTGRES_USER: ${{ vars.POSTGRES_USER }}
+          POSTGRES_PASSWORD: ${{ vars.POSTGRES_PASSWORD }}
+          POSTGRES_DB: ${{ vars.POSTGRES_DB }}
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+        - "${{ vars.POSTGRES_PORT }}:5432"
+    <%/postgres%>
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -52,4 +68,8 @@ jobs:
       - name: Add tap problem matcher
         run: echo "::add-matcher::.github/matchers/tap.json"
       - name: Test
+        <%#env_vault%>
+        env:
+          DOTENV_KEY: ${{ secrets.DOTENV_KEY }}
+        <%/env_vault%>
         run: npm test --ignore-scripts
