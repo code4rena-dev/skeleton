@@ -8,8 +8,7 @@
     "typeRoots": [
       "./node_modules/@types",
       "./lib/types"
-    ],
-    "moduleResolution": "node16"
+    ]
   },
   "//": "This file is partially managed by code-skeleton. Changes may be overwritten."
 }

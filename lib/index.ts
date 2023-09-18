@@ -53,7 +53,7 @@ export default async function (root: string, variables: Variables) {
       },
       types: "lib/index.d.ts",
       devDependencies: {
-        "@tsconfig/node18": "^2.0.0",
+        "@tsconfig/node18": "^18.0.0",
         "@types/mustache": "^4.0.0",
         "@types/node": "^18.0.0",
         "@types/tap": "^15.0.0",
