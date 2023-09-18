@@ -9,6 +9,7 @@
 !/.github/
 !/.gitignore
 !/.npmrc
+!/Dockerfile
 !/bin/
 !/CHANGELOG*
 !/docs/
@@ -23,7 +24,6 @@
 !/tap-snapshots/
 !/test/
 !/tsconfig*.json
-!Dockerfile
 
 # re-ignore typescript output artifacts
 /knexfile.js

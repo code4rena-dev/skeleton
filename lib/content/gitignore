@@ -4,10 +4,12 @@
 
 # keep these
 !**/.gitignore
+!/.devcontainer/
 !/.eslintrc.js
 !/.github/
 !/.gitignore
 !/.npmrc
+!/Dockerfile
 !/bin/
 !/CHANGELOG*
 !/docs/
