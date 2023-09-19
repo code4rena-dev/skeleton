@@ -2,6 +2,7 @@ import { dirname, join } from "node:path";
 import { readFileSync } from "node:fs";
 import { readFile, rm } from "node:fs/promises";
 import { copy, json, pkg, type Skeleton } from "code-skeleton";
+import { mustache } from "./mustache";
 
 const ownPkg = JSON.parse(
   readFileSync(join(dirname(__dirname), "package.json"), { encoding: "utf8" })
@@ -10,6 +11,7 @@ const ownPkg = JSON.parse(
 interface Variables {
   dogfood?: boolean;
   library?: boolean;
+  ci?: object;
 }
 
 export default async function (root: string, variables: Variables) {
@@ -51,12 +53,14 @@ export default async function (root: string, variables: Variables) {
       },
       types: "lib/index.d.ts",
       devDependencies: {
-        "@tsconfig/node18": "^2.0.0",
+        "@tsconfig/node18": "^18.0.0",
+        "@types/mustache": "^4.0.0",
         "@types/node": "^18.0.0",
         "@types/tap": "^15.0.0",
         "@typescript-eslint/eslint-plugin": "^5.0.0",
         "@typescript-eslint/parser": "^5.0.0",
         "eslint": "^8.0.0",
+        "mustache": "^4.0.0",
         "tap": "^16.0.0",
         "ts-node": "^10.0.0",
         "typescript": "^5.0.0"
@@ -94,7 +98,7 @@ export default async function (root: string, variables: Variables) {
     ".eslintrc.js": copy(join(__dirname, "content", "eslintrc.js")),
     ".gitignore": copy(join(__dirname, "content", "gitignore")),
     "scripts/clean.ts": copy(join(__dirname, "content", "clean.ts")),
-    ".github/workflows/ci.yml": copy(join(__dirname, "content", "ci.yml")),
+    ".github/workflows/ci.yml": mustache(join(__dirname, "content", "ci.yml"), variables.ci),
     ".github/matchers/tap.json": copy(join(__dirname, "content", "tap.json")),
   };
 
