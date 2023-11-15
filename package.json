@@ -12,6 +12,7 @@
     "prelint": "tsc --noEmit",
     "postlint": "npm run skeleton:verify",
     "skeleton:apply": "code-skeleton apply",
+    "preskeleton:verify": "npm run prepack",
     "skeleton:verify": "code-skeleton verify"
   },
   "keywords": [],
@@ -25,13 +26,13 @@
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": "^5.0.0",
     "eslint": "^8.0.0",
-    "mustache": "^4.0.0",
+    "mustache": "^4.2.0",
     "tap": "^16.0.0",
     "ts-node": "^10.0.0",
     "typescript": "^5.0.0"
   },
   "peerDependencies": {
-    "code-skeleton": "^1.0.0"
+    "code-skeleton": "^2.0.0"
   },
   "skeleton": {
     "module": ".",
@@ -43,6 +44,12 @@
       }
     }
   },
+  "//": "This file is partially managed by code-skeleton. Changes may be overwritten.",
+  "tap": {
+    "coverage": true,
+    "ts": true
+  },
+  "types": "lib/index.d.ts",
   "files": [
     "bin/**/*.js",
     "lib/**/*.js",
