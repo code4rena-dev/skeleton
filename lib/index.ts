@@ -54,13 +54,11 @@ export default async function (root: string, variables: Variables) {
       types: "lib/index.d.ts",
       devDependencies: {
         "@tsconfig/node18": "^18.0.0",
-        "@types/mustache": "^4.0.0",
         "@types/node": "^18.0.0",
         "@types/tap": "^15.0.0",
         "@typescript-eslint/eslint-plugin": "^5.0.0",
         "@typescript-eslint/parser": "^5.0.0",
         "eslint": "^8.0.0",
-        "mustache": "^4.0.0",
         "tap": "^16.0.0",
         "ts-node": "^10.0.0",
         "typescript": "^5.0.0"
