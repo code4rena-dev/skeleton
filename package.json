@@ -18,6 +18,9 @@
   "keywords": [],
   "author": "Nathan LaFreniere <nlf@nlf.sh>",
   "license": "ISC",
+  "dependencies": {
+    "mustache": "^4.2.0"
+  },
   "devDependencies": {
     "@tsconfig/node18": "^18.0.0",
     "@types/mustache": "^4.0.0",
@@ -26,7 +29,6 @@
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": "^5.0.0",
     "eslint": "^8.0.0",
-    "mustache": "^4.2.0",
     "tap": "^16.0.0",
     "ts-node": "^10.0.0",
     "typescript": "^5.0.0"
