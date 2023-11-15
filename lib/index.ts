@@ -98,7 +98,10 @@ export default async function (root: string, variables: Variables) {
     ".eslintrc.js": copy(join(__dirname, "content", "eslintrc.js")),
     ".gitignore": copy(join(__dirname, "content", "gitignore")),
     "scripts/clean.ts": copy(join(__dirname, "content", "clean.ts")),
-    ".github/workflows/ci.yml": mustache(join(__dirname, "content", "ci.yml"), variables.ci),
+    ".github/workflows/ci.yml": mustache({
+      sourcePath: join(__dirname, "content", "ci.yml"),
+      variables,
+    }),
     ".github/matchers/tap.json": copy(join(__dirname, "content", "tap.json")),
   };
 
