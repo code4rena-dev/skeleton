@@ -26,8 +26,8 @@
     "@types/mustache": "^4.0.0",
     "@types/node": "^18.0.0",
     "@types/tap": "^15.0.0",
-    "@typescript-eslint/eslint-plugin": "^5.0.0",
-    "@typescript-eslint/parser": "^5.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
     "eslint": "^8.0.0",
     "tap": "^16.0.0",
     "ts-node": "^10.0.0",
@@ -47,15 +47,15 @@
     }
   },
   "//": "This file is partially managed by code-skeleton. Changes may be overwritten.",
-  "tap": {
-    "coverage": true,
-    "ts": true
-  },
   "types": "lib/index.d.ts",
   "files": [
     "bin/**/*.js",
     "lib/**/*.js",
     "lib/**/*.d.ts",
     "!lib/types/**"
-  ]
+  ],
+  "tap": {
+    "coverage": true,
+    "ts": true
+  }
 }
