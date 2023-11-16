@@ -16,6 +16,7 @@
 !/knexfile.ts
 !/lib/
 !/migrations/
+!/.nomad/
 !/LICENSE*
 !/package.json
 !/README*
