@@ -98,11 +98,7 @@ export default async function (root: string, variables: Variables) {
     "scripts/clean.ts": copy(join(__dirname, "content", "clean.ts")),
     ".github/workflows/ci.yml": mustache({
       sourcePath: join(__dirname, "content", "ci.yml"),
-      variables: {
-        postgress: false,
-        env_vault: false,
-        ...variables.ci,
-      },
+      variables: variables.ci || {},
     }),
     ".github/matchers/tap.json": copy(join(__dirname, "content", "tap.json")),
   };
