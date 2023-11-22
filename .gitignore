@@ -9,6 +9,7 @@
 !/.github/
 !/.gitignore
 !/.npmrc
+!/.prettierrc.json
 !/Dockerfile
 !/bin/
 !/CHANGELOG*
