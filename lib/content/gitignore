@@ -9,6 +9,7 @@
 !/.github/
 !/.gitignore
 !/.npmrc
+!/.prettierrc.json
 !/Dockerfile
 !/bin/
 !/CHANGELOG*
@@ -25,6 +26,7 @@
 !/tap-snapshots/
 !/test/
 !/tsconfig*.json
+!/heroku.yml
 
 # re-ignore typescript output artifacts
 /knexfile.js
