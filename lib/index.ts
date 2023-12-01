@@ -14,14 +14,26 @@ interface Variables {
   ci?: object;
 }
 
+type PkgContents = {
+  // we don't use these fields directly, we just need to know if they have a value
+  bin?: unknown;
+  directories?: { bin?: unknown };
+
+  // these ones we inspect
+  name: string;
+  devDependencies?: Record<string, string>;
+};
+
 export default async function (root: string, variables: Variables) {
   const actualContent = await readFile(join(root, "package.json"), { encoding: "utf8" });
-  const actualPkg = JSON.parse(actualContent) as { name: string; devDependencies?: Record<string, string> };
+  const actualPkg = JSON.parse(actualContent) as PkgContents;
   if (actualPkg.name !== ownPkg.name && actualPkg.devDependencies?.[ownPkg.name] !== ownPkg.version) {
     console.log(`ERROR! The devDependency "${ownPkg.name}" must be set to the exact version "${ownPkg.version}"`);
     console.log(`Try running \`npm install --save-exact -D ${ownPkg.name}\``);
     process.exit(1);
   }
+
+  const hasBin = !!(actualPkg.bin || actualPkg.directories?.bin);
 
   const csBin = variables.dogfood ? "./bin/code-skeleton.ts" : "code-skeleton";
   const skeleton: Skeleton = {
@@ -43,9 +55,17 @@ export default async function (root: string, variables: Variables) {
         postlint: "npm run skeleton:verify",
         test: "tap",
         posttest: "npm run lint",
-        prepack: "tsc --project tsconfig.build.json",
         "skeleton:apply": `${csBin} apply`,
         "skeleton:verify": `${csBin} verify`,
+        ...(hasBin
+          ? {
+            "update-shebang": "./scripts/update-shebang.ts",
+            prepack: "tsc --project tsconfig.build.json && npm run update-shebang",
+          }
+          : {
+            prepack: "tsc --project tsconfig.build.json",
+          }
+        ),
       },
       tap: {
         coverage: true,
@@ -106,6 +126,10 @@ export default async function (root: string, variables: Variables) {
   if (variables.library) {
     await rm(join(root, "package-lock.json"), { force: true });
     skeleton[".npmrc"] = copy(join(__dirname, "content", "npmrc"));
+  }
+
+  if (hasBin) {
+    skeleton["scripts/update-shebang.ts"] = copy(join(__dirname, "content", "update-shebang.ts"));
   }
 
   return skeleton;
