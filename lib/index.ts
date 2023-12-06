@@ -67,22 +67,18 @@ export default async function (root: string, variables: Variables) {
           }
         ),
       },
-      tap: {
-        coverage: true,
-        ts: true,
-      },
       types: "lib/index.d.ts",
       devDependencies: {
         "@tsconfig/node18": "^18.0.0",
         "@types/node": "^18.0.0",
-        "@types/tap": "^15.0.0",
         "@typescript-eslint/eslint-plugin": "^6.0.0",
         "@typescript-eslint/parser": "^6.0.0",
         "eslint": "^8.0.0",
-        "tap": "^16.0.0",
+        "tap": "^18.0.0",
         "ts-node": "^10.0.0",
         "typescript": "^5.0.0"
       },
+      removeDependencies: ["@types/tap"],
     }),
     "tsconfig.json": json({
       set: {
