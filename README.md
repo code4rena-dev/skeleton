@@ -31,3 +31,8 @@ When enabled, you will need to set the following repository variables in your gi
 
 #### Dotenv Vault
 When enabled, in addition to a commited .env.vault file, you will need to set the `DOTENV_KEY` environment secret for the desired .env file from your .env.keys file. Set this as a repository secret at `{repo}/settings/secrets/actions` on github.
+
+#### Update your skeleton version
+Check the latest version
+Run: `npm i -D --save-exact @code4rena/skeleton@[LATEST_VERSION]`
+Then: `npx code-skeleton apply`
