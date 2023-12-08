@@ -36,3 +36,7 @@ When enabled, in addition to a commited .env.vault file, you will need to set th
 Check the latest version
 Run: `npm i -D --save-exact @code4rena/skeleton@[LATEST_VERSION]`
 Then: `npx code-skeleton apply`
+
+#### Potential issue with shebang
+
+If you see a `Permission Denied` issue with `shebang`, you can run `chmod +x ./scripts/update-shebang.ts`
