@@ -15,7 +15,7 @@ async function updateShebang (path: string) {
 }
 
 async function main () {
-  const npmResult = spawnSync("npm", ["show", ".", "bin", "--json"], {
+  const npmResult = spawnSync("npm", ["show", `file://${ROOT}`, "bin", "--json"], {
     cwd: ROOT,
     shell: true,
     encoding: "utf8",
