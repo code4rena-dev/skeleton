@@ -75,3 +75,33 @@ jobs:
           DOTENV_KEY: ${{ secrets.DOTENV_KEY }}
         <%/env_vault%>
         run: npm test --ignore-scripts
+
+  weekly_test:
+    name: Weekly Full Test
+    runs-on: ubuntu-latest
+    if: github.event_name == 'schedule'
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+      - name: Update npm
+        run: npm i --prefer-online --no-fund --no-audit -g npm@latest
+      - name: Install dependencies
+        run: npm i --no-audit --no-fund
+      - name: Check if test:full is defined
+        id: check_test_full
+        run: |
+          if grep -q '"test:full":' package.json; then
+            echo "::set-output name=exists::true"
+          else
+            echo "::set-output name=exists::false"
+          fi
+      - name: Run Full Test
+        if: steps.check_test_full.outputs.exists == 'true'
+        run: npm run test:full --ignore-scripts
