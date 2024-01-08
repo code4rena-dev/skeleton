@@ -75,3 +75,11 @@ jobs:
           DOTENV_KEY: ${{ secrets.DOTENV_KEY }}
         <%/env_vault%>
         run: npm test --ignore-scripts
+      - name: Weekly Integration Tests
+        if: github.event_name == 'schedule'
+        run: |
+          if npm run --silent | grep -q "test:integration"; then
+            npm run test:integration --ignore-scripts
+          else
+            echo "No integration tests to run, skipping..."
+          fi
