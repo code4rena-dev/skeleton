@@ -1,3 +1,4 @@
+import { ValidateInput } from "code-skeleton/lib/generators/abstract";
 import { Generator } from "code-skeleton/lib/generators/abstract";
 import { readFile } from "node:fs/promises";
 import Mustache from "mustache";
@@ -24,6 +25,18 @@ class MustacheGenerator extends Generator<MustacheGeneratorOptions> {
 
     const rendered = Mustache.render(source.toString(), this.options.variables);
     return rendered;
+  }
+
+  async validate(options: ValidateInput) : Promise<void> {
+    const expected = await this.generate();
+
+    if (!options.found.includes(expected)) {
+      this.report({
+        expected,
+        found: options.found,
+        message: `${this.options.path} does not include the original template`
+      });
+    }
   }
 }
 
