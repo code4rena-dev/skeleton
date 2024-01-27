@@ -22,14 +22,15 @@
     "mustache": "^4.2.0"
   },
   "devDependencies": {
+    "@tapjs/sinon": "^1.1.18",
     "@tsconfig/node18": "^18.0.0",
     "@types/mustache": "^4.0.0",
     "@types/node": "^18.0.0",
-    "@types/tap": "^15.0.0",
+    "@types/sinon": "^17.0.3",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
     "eslint": "^8.0.0",
-    "tap": "^16.0.0",
+    "tap": "^18.7.0",
     "ts-node": "^10.0.0",
     "typescript": "5.2.2"
   },
@@ -54,9 +55,5 @@
     "lib/**/*.d.ts",
     "!lib/types/**",
     "lib/content/**"
-  ],
-  "tap": {
-    "coverage": true,
-    "ts": true
-  }
+  ]
 }

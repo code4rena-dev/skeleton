@@ -1,0 +1,6 @@
+# vim: set filetype=yaml :
+disable-coverage: false
+allow-incomplete-coverage: false
+plugin:
+  - "@tapjs/sinon"
+  - "!@tapjs/intercept"
