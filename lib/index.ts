@@ -69,7 +69,7 @@ export default async function (root: string, variables: Variables) {
       },
       types: "lib/index.d.ts",
       devDependencies: {
-        "@tsconfig/node18": "^18.0.0",
+        "@tsconfig/node20": "^20.0.0",
         "@types/node": "^18.0.0",
         "@typescript-eslint/eslint-plugin": "^6.0.0",
         "@typescript-eslint/parser": "^6.0.0",
@@ -79,7 +79,8 @@ export default async function (root: string, variables: Variables) {
         "typescript": "^5.0.0"
       },
       removeDependencies: [
-        "@types/tap"
+        "@types/tap",
+        "@tsconfig/node18"
       ]
     }),
     "tsconfig.json": json({
