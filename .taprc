@@ -1,8 +1,11 @@
 # vim: set filetype=yaml :
 disable-coverage: false
-allow-incomplete-coverage: false
+allow-empty-coverage: true
+allow-incomplete-coverage: true
 plugin:
   - "@tapjs/sinon"
   - "!@tapjs/intercept"
   - "@tapjs/tsx"
   - "!@tapjs/typescript"
+color: true
+reporter: base

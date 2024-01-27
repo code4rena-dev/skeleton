@@ -1,5 +1,5 @@
 import t from "tap";
-import { mustache } from "../lib/mustache.ts";
+import { mustache } from "../lib/mustache";
 
 void t.test("mustache", async (t) => {
   await t.test("must include a path", (t) => {
@@ -9,7 +9,7 @@ void t.test("mustache", async (t) => {
   });
 
   await t.test("should generate", async (t) => {
-    const { mustache } = t.mockRequire<typeof import("../lib/mustache.ts")>("../lib/mustache.ts", {
+    const { mustache } = t.mockRequire<typeof import("../lib/mustache")>("../lib/mustache", {
       "node:fs/promises": {
         readFile: (path: string) => {
           t.equal(path, "path/to/file.txt");
@@ -31,7 +31,7 @@ void t.test("mustache", async (t) => {
   });
 
   await t.test("should validate partials", async (t) => {
-    const { mustache } = t.mockRequire<typeof import("../lib/mustache.ts")>("../lib/mustache.ts", {
+    const { mustache } = t.mockRequire<typeof import("../lib/mustache")>("../lib/mustache", {
       "node:fs/promises": {
         readFile: () => Promise.resolve("<% title %>")
       }
@@ -59,7 +59,7 @@ void t.test("mustache", async (t) => {
   });
 
   await t.test("should fail validation when base template not found", async (t) => {
-    const { mustache } = t.mockRequire<typeof import("../lib/mustache.ts")>("../lib/mustache.ts", {
+    const { mustache } = t.mockRequire<typeof import("../lib/mustache")>("../lib/mustache", {
       "node:fs/promises": {
         readFile: () => Promise.resolve("<% title %>")
       }
