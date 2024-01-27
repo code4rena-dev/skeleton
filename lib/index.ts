@@ -66,6 +66,7 @@ export default async function (root: string, variables: Variables) {
             prepack: "tsc --project tsconfig.build.json",
           }
         ),
+        postinstall: "tap build",
       },
       types: "lib/index.d.ts",
       devDependencies: {

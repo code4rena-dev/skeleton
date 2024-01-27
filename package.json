@@ -13,7 +13,8 @@
     "postlint": "npm run skeleton:verify",
     "skeleton:apply": "code-skeleton apply",
     "preskeleton:verify": "npm run prepack",
-    "skeleton:verify": "code-skeleton verify"
+    "skeleton:verify": "code-skeleton verify",
+    "postinstall": "tap build"
   },
   "keywords": [],
   "author": "Nathan LaFreniere <nlf@nlf.sh>",
