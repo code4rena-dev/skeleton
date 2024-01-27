@@ -6,6 +6,8 @@
     "./lib/content/**"
   ],
   "compilerOptions": {
+    "allowImportingTsExtensions": false,
+    "noEmit": false,
     "declaration": true
   },
   "//": "This file is partially managed by code-skeleton. Changes may be overwritten."
