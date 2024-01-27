@@ -4,3 +4,5 @@ allow-incomplete-coverage: false
 plugin:
   - "@tapjs/sinon"
   - "!@tapjs/intercept"
+  - "@tapjs/tsx"
+  - "!@tapjs/typescript"

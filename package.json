@@ -23,6 +23,7 @@
   },
   "devDependencies": {
     "@tapjs/sinon": "^1.1.18",
+    "@tapjs/tsx": "^1.1.19",
     "@tsconfig/node18": "^18.0.0",
     "@types/mustache": "^4.0.0",
     "@types/node": "^18.0.0",
@@ -32,7 +33,7 @@
     "eslint": "^8.0.0",
     "tap": "^18.7.0",
     "ts-node": "^10.0.0",
-    "typescript": "5.2.2"
+    "typescript": "^5.3.3"
   },
   "peerDependencies": {
     "code-skeleton": "^2.0.0"
