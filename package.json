@@ -27,7 +27,7 @@
     "@tapjs/tsx": "^1.1.19",
     "@tsconfig/node20": "^20.0.0",
     "@types/mustache": "^4.0.0",
-    "@types/node": "^18.0.0",
+    "@types/node": "^20.0.0",
     "@types/sinon": "^17.0.3",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",

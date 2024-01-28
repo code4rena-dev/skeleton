@@ -5,8 +5,6 @@
     ".eslintrc.js"
   ],
   "compilerOptions": {
-    "allowImportingTsExtensions": true,
-    "noEmit": true,
     "typeRoots": [
       "./node_modules/@types",
       "./lib/types"

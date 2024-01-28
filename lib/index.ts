@@ -71,7 +71,7 @@ export default async function (root: string, variables: Variables) {
       types: "lib/index.d.ts",
       devDependencies: {
         "@tsconfig/node20": "^20.0.0",
-        "@types/node": "^18.0.0",
+        "@types/node": "^20.0.0",
         "@typescript-eslint/eslint-plugin": "^6.0.0",
         "@typescript-eslint/parser": "^6.0.0",
         "eslint": "^8.0.0",
