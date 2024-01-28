@@ -87,7 +87,7 @@ export default async function (root: string, variables: Variables) {
     "tsconfig.json": json({
       set: {
         "//": "This file is partially managed by code-skeleton. Changes may be overwritten.",
-        extends: "@tsconfig/node18/tsconfig.json",
+        extends: "@tsconfig/node20/tsconfig.json",
       },
       append: {
         include: [
