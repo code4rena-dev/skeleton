@@ -1,11 +1,11 @@
-#!/usr/bin/env ts-node
+#!/usr/bin/env tsx
 
 import { spawnSync } from "node:child_process";
 import { readFile, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 
 const ROOT = dirname(__dirname);
-const tsShebang = "#!/usr/bin/env ts-node";
+const tsShebang = "#!/usr/bin/env tsx";
 const jsShebang = "#!/usr/bin/env node";
 
 async function updateShebang (path: string) {

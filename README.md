@@ -8,6 +8,16 @@
 
 ## Configuration & Usage
 
+**Important Note** on '@tsconfig/node18/tsconfig.json' not found, and Tap:
+
+There is currently an [issue](https://github.com/tapjs/tapjs/issues/976) in ts-node that causes a loading problem when combined with Tap.js. There is a [recommended](https://github.com/tapjs/tapjs/issues/976#issuecomment-1824784507) workaround for this. Once you update your skeleton, swap out these plugins:
+
+```
+npx tap plugin add @tapjs/tsx
+npx tap plugin rm @tapjs/typescript
+```
+
+
 ### CI
 In your projects `package.json` you can set custom CI variables to extend the default workflow. The following configuration will add a Postgres service to the test job, as well as inject the `DOTENV_KEY` environment variables for dotenv vault usage.
 

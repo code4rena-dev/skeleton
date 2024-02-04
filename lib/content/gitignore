@@ -10,6 +10,7 @@
 !/.gitignore
 !/.npmrc
 !/.prettierrc.json
+!/.taprc
 !/Dockerfile
 !/bin/
 !/CHANGELOG*

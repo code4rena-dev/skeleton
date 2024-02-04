@@ -1,4 +1,4 @@
-#!/usr/bin/env ts-node
+#!/usr/bin/env tsx
 // This file is managed by code-skeleton. Do not make changes.
 
 import { rmSync } from "node:fs";
