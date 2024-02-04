@@ -33,11 +33,16 @@
     "@typescript-eslint/parser": "^6.0.0",
     "eslint": "^8.0.0",
     "tap": "^18.7.0",
-    "ts-node": "^10.0.0",
-    "typescript": "5.2.2"
+    "tsx": "4.2.1",
+    "typescript": "^5.0.0"
   },
   "peerDependencies": {
     "code-skeleton": "^2.0.0"
+  },
+  "overrides": {
+    "@tapjs/tsx": {
+      "tsx": "$tsx"
+    }
   },
   "skeleton": {
     "module": ".",

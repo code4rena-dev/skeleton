@@ -76,8 +76,15 @@ export default async function (root: string, variables: Variables) {
         "@typescript-eslint/parser": "^6.0.0",
         "eslint": "^8.0.0",
         "tap": "^18.7.0",
-        "ts-node": "^10.0.0",
+        "tsx": "4.2.1",
         "typescript": "^5.0.0"
+      },
+      "overrides": {
+        // Needed with the 4.2.1 tsx version lock to fix code coverage
+        // https://github.com/privatenumber/tsx/issues/433
+        "@tapjs/tsx": {
+          "tsx": "$tsx"
+        }
       },
       removeDependencies: [
         "@types/tap",
