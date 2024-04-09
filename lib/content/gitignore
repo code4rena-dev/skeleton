@@ -27,6 +27,7 @@
 !/test/
 !/tsconfig*.json
 !/heroku.yml
+!/benchmark/
 
 # re-ignore typescript output artifacts
 /knexfile.js
