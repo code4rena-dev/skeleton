@@ -1,6 +1,6 @@
 {
   "name": "@code4rena/skeleton",
-  "version": "1.2.1",
+  "version": "2.0.0-2",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -13,7 +13,8 @@
     "postlint": "npm run skeleton:verify",
     "skeleton:apply": "code-skeleton apply",
     "preskeleton:verify": "npm run prepack",
-    "skeleton:verify": "code-skeleton verify"
+    "skeleton:verify": "code-skeleton verify",
+    "postinstall": "tap build"
   },
   "keywords": [],
   "author": "Nathan LaFreniere <nlf@nlf.sh>",
@@ -22,19 +23,26 @@
     "mustache": "^4.2.0"
   },
   "devDependencies": {
-    "@tsconfig/node18": "^18.0.0",
+    "@tapjs/sinon": "^1.1.18",
+    "@tapjs/tsx": "^1.1.19",
+    "@tsconfig/node20": "^20.0.0",
     "@types/mustache": "^4.0.0",
-    "@types/node": "^18.0.0",
-    "@types/tap": "^15.0.0",
+    "@types/node": "^20.0.0",
+    "@types/sinon": "^17.0.3",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
     "eslint": "^8.0.0",
-    "tap": "^16.0.0",
-    "ts-node": "^10.0.0",
-    "typescript": "5.2.2"
+    "tap": "^18.7.0",
+    "tsx": "4.2.1",
+    "typescript": "^5.0.0"
   },
   "peerDependencies": {
     "code-skeleton": "^2.0.0"
+  },
+  "overrides": {
+    "@tapjs/tsx": {
+      "tsx": "$tsx"
+    }
   },
   "skeleton": {
     "module": ".",
@@ -54,9 +62,5 @@
     "lib/**/*.d.ts",
     "!lib/types/**",
     "lib/content/**"
-  ],
-  "tap": {
-    "coverage": true,
-    "ts": true
-  }
+  ]
 }

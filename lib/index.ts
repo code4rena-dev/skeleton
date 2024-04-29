@@ -66,28 +66,35 @@ export default async function (root: string, variables: Variables) {
             prepack: "tsc --project tsconfig.build.json",
           }
         ),
-      },
-      tap: {
-        coverage: true,
-        ts: true,
+        postinstall: "tap build",
       },
       types: "lib/index.d.ts",
       devDependencies: {
-        "@tsconfig/node18": "^18.0.0",
-        "@types/node": "^18.0.0",
-        "@types/tap": "^15.0.0",
+        "@tsconfig/node20": "^20.0.0",
+        "@types/node": "^20.0.0",
         "@typescript-eslint/eslint-plugin": "^6.0.0",
         "@typescript-eslint/parser": "^6.0.0",
         "eslint": "^8.0.0",
-        "tap": "^16.0.0",
-        "ts-node": "^10.0.0",
+        "tap": "^18.7.0",
+        "tsx": "4.2.1",
         "typescript": "^5.0.0"
       },
+      "overrides": {
+        // Needed with the 4.2.1 tsx version lock to fix code coverage
+        // https://github.com/privatenumber/tsx/issues/433
+        "@tapjs/tsx": {
+          "tsx": "$tsx"
+        }
+      },
+      removeDependencies: [
+        "@types/tap",
+        "@tsconfig/node18"
+      ]
     }),
     "tsconfig.json": json({
       set: {
         "//": "This file is partially managed by code-skeleton. Changes may be overwritten.",
-        extends: "@tsconfig/node18/tsconfig.json",
+        extends: "@tsconfig/node20/tsconfig.json",
       },
       append: {
         include: [
